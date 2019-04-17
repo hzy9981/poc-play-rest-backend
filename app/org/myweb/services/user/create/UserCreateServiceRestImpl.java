@@ -3,7 +3,7 @@ package org.myweb.services.user.create;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
 import models.ModelFactoryHelper;
-import models.user.User;
+import models.user.LcUser;
 import org.jetbrains.annotations.NotNull;
 import org.myweb.services.JavaServiceResult;
 import org.myweb.services.RestServiceResult;
@@ -30,7 +30,7 @@ public class UserCreateServiceRestImpl implements UserCreateServiceRest {
     @Override
     public RestServiceResult createUser(@NotNull JsonNode jsContent) throws ServiceException {
 
-        Form<User> userForm = Form.form(User.class);
+        Form<LcUser> userForm = Form.form(LcUser.class);
         userForm = userForm.bind(jsContent);
 
         if(userForm.hasErrors()) {
@@ -40,16 +40,16 @@ public class UserCreateServiceRestImpl implements UserCreateServiceRest {
                     Messages.get("global.malformed.request"), userForm.errorsAsJson());
 
         } else {
-            User formUser = userForm.bind(jsContent).get();
+            LcUser formUser = userForm.bind(jsContent).get();
 
-            User newUser = modelFactoryHelper.userFactory(
-                    null, formUser.getLogin(), formUser.getNewPassword(),
+            LcUser newUser = modelFactoryHelper.userFactory(
+                    null, null, formUser.getNewPassword(),
                     formUser.getConfirmPassword(), formUser.getEmail()
             );
 
             JavaServiceResult res = userCreateServiceJava.createUser(newUser);
 
-            newUser = (User) res.getSingleContent();
+            newUser = (LcUser) res.getSingleContent();
             assert newUser != null;
             newUser.setNewPassword(null);
             newUser.setConfirmPassword(null);

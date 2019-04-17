@@ -9,10 +9,10 @@ export PPRB_DB_USER="myweb_db_user"
 export PPRB_DB_PWD="password"
 
 # list of allowed origin is not currenty supported
-export PPRB_CORS_ACCESS_CONTROL_ALLOW_ORIGIN="http://127.0.0.1:9000"
+set PPRB_CORS_ACCESS_CONTROL_ALLOW_ORIGIN="http://localhost:9000"
 
-export PPRB_TECH_EMAIL="junk@marc-loupias.fr"
-export PPRB_NOREPLY_EMAIL="noreply@poc-play-rest-backed.org";
-export PPRB_MAILER_SMTP_URL="uselessInDevMode";
-export PPRB_MAILER_SMTP_USERNAME="uselessInDevMode";
-export PPRB_MAILER_SMTP_PWD="uselessInDevMode";
+set PPRB_TECH_EMAIL="junk@marc-loupias.fr"
+set PPRB_NOREPLY_EMAIL="noreply@poc-play-rest-backed.org";
+set PPRB_MAILER_SMTP_URL="uselessInDevMode";
+set PPRB_MAILER_SMTP_USERNAME="uselessInDevMode";
+set PPRB_MAILER_SMTP_PWD="uselessInDevMode";

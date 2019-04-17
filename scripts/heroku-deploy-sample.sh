@@ -11,7 +11,7 @@ heroku config:set PPRB_DB_PWD=<db_password_value>
 
 # CORS config
 # ~~~~~~~~~~~
-heroku config:set PPRB_CORS_ACCESS_CONTROL_ALLOW_ORIGIN=<YOUR_FRONTEND_URL>
+heroku config:set PPRB_CORS_ACCESS_CONTROL_ALLOW_ORIGIN=*
 
 # mailer config
 # ~~~~~~~~~~~~~

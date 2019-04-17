@@ -1,7 +1,7 @@
 package org.myweb.services.user.infos;
 
 import com.google.inject.Inject;
-import models.user.User;
+import models.user.LcUser;
 import org.jetbrains.annotations.NotNull;
 import org.myweb.services.RestServiceResult;
 import org.myweb.services.ServiceException;
@@ -34,6 +34,6 @@ public class UserInfosServiceRestImpl implements UserInfosServiceRest {
             );
         }
 
-        return getServiceRest.get(User.class, userId);
+        return getServiceRest.get(LcUser.class, userId);
     }
 }

@@ -3,7 +3,7 @@ package org.myweb.services.user.update;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
 import models.ModelFactoryHelper;
-import models.user.User;
+import models.user.LcUser;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -56,7 +56,7 @@ public class UserUpdateServiceRestImpl implements UserUpdateServiceRest {
             );
         }
 
-        Form<User> userForm = Form.form(User.class);
+        Form<LcUser> userForm = Form.form(LcUser.class);
         userForm = userForm.bind(jsContent);
 
         if(userForm.hasErrors()) {
@@ -66,7 +66,7 @@ public class UserUpdateServiceRestImpl implements UserUpdateServiceRest {
                     Messages.get("global.malformed.request"), userForm.errorsAsJson());
 
         } else {
-            User formUser = userForm.bind(jsContent).get();
+            LcUser formUser = userForm.bind(jsContent).get();
 
             if(formUser.getId() == null || (formUser.getId().longValue() != userId.longValue()) ){
 
@@ -77,7 +77,7 @@ public class UserUpdateServiceRestImpl implements UserUpdateServiceRest {
                 );
             }
 
-            checkLogin.checkExcludingUserId(formUser.getLogin(), formUser.getId());
+            checkLogin.checkExcludingUserId(formUser.getMobile(), formUser.getId());
             checkEmail.checkExcludingUserId(formUser.getEmail(), formUser.getId());
 
             if( formUser.getNewPassword() == null || formUser.getConfirmPassword() == null ||
@@ -90,8 +90,8 @@ public class UserUpdateServiceRestImpl implements UserUpdateServiceRest {
                 );
             }
 
-            User userToUpdate = modelFactoryHelper.userFactory(
-                    formUser.getId(), formUser.getLogin(), formUser.getNewPassword(),
+            LcUser userToUpdate = modelFactoryHelper.userFactory(
+                    formUser.getId(), formUser.getMobile(), formUser.getNewPassword(),
                     formUser.getConfirmPassword(), formUser.getEmail()
             );
 
@@ -121,7 +121,7 @@ public class UserUpdateServiceRestImpl implements UserUpdateServiceRest {
                 );
             }
 
-            getServiceRest.get(User.class, userId);
+            getServiceRest.get(LcUser.class, userId);
 
             dao.merge(userToUpdate);
 

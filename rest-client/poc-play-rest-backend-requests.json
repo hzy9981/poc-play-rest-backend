@@ -16,7 +16,7 @@
     },
     "Users POST":{
         "method":"POST","url":"http://localhost:9000/users",
-        "body":"{\"login\":\"testUser\",\"newPassword\":\"l3g@lPwd\", \"confirmPassword\":\"l3g@lPwd\",\"email\":\"toto@toto.fr\"}",
+        "body":"{\"id\":2,\"mobile\":\"admin\",\"password\":\"000000\",\"gender\":\"0\",\"jobUnit\":\"ccs\",\"realName\":\"admin\",\"newPassword\":\"l3g@lPwdUpdated\", \"confirmPassword\":\"l3g@lPwdUpdated\",\"email\":\"toto@toto.fr\"}\n",
         "overrideMimeType":false,"headers":[["Content-Type","application/json"]]
     },
     "Login POST":{

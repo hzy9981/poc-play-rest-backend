@@ -2,7 +2,7 @@ package org.myweb.services.user.login;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
-import models.user.User;
+import models.user.LcUser;
 import models.user.UserPasswordSettings;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.jetbrains.annotations.NotNull;
@@ -50,20 +50,20 @@ public class UserLoginServiceRestImpl implements UserLoginServiceRest {
         } else {
             UserLoginAttempt userLoginAttempt = userLoginAttemptForm.bind(jsContent).get();
 
-            User user;
+            LcUser user;
             Map<String, Object> param;
 
             if(userLoginAttempt.getLogin() != null && !userLoginAttempt.getLogin().isEmpty()) {
 
                 param = new HashMap<>();
                 param.put("login", userLoginAttempt.getLogin());
-                user = (User) dao.namedQuerySingleResult("User.findByLogin", User.class, param);
+                user = (LcUser) dao.namedQuerySingleResult("LcUser.findByLogin", LcUser.class, param);
 
             } else if(userLoginAttempt.getEmail() != null && !userLoginAttempt.getEmail().isEmpty()) {
 
                 param = new HashMap<>();
                 param.put("email", userLoginAttempt.getEmail());
-                user = (User) dao.namedQuerySingleResult("User.findByEmail", User.class, param);
+                user = (LcUser) dao.namedQuerySingleResult("LcUser.findByEmail", LcUser.class, param);
 
             } else {
 
@@ -84,46 +84,46 @@ public class UserLoginServiceRestImpl implements UserLoginServiceRest {
                 );
             }
 
-            UserPasswordSettings pwdSettings = user.getUserPasswordSettings();
-
-            boolean loginResult;
-            try {
-
-                loginResult = securityUtilsService.isExpectedPassword(
-                        userLoginAttempt.getPassword().toCharArray(),
-                        pwdSettings.getSalt(),
-                        pwdSettings.getHashedPwd(),
-                        pwdSettings.getIterations(),
-                        pwdSettings.getPwdDerivatedKeyBitLength(),
-                        pwdSettings.getPwdPBKDF2algo()
-                );
-
-            } catch (InvalidKeySpecException e) {
-
-                throw new ServiceException(
-                        UserLoginServiceRestImpl.class.getName(), INTERNAL_SERVER_ERROR,
-                        ExceptionUtils.getStackTrace(e),
-                        Messages.get("login.attempt.error.internal.server.error")
-                );
-
-            } catch (NoSuchAlgorithmException e) {
-
-                throw new ServiceException(
-                        UserLoginServiceRestImpl.class.getName(), INTERNAL_SERVER_ERROR,
-                        "Given hash algorithm does not exist or not supported ! (" +
-                                pwdSettings.getPwdPBKDF2algo() + ")",
-                        Messages.get("login.attempt.error.internal.server.error")
-                );
-            }
-
-            if(!loginResult) {
-
-                throw new ServiceException(
-                        UserLoginServiceRestImpl.class.getName(), UNAUTHORIZED,
-                        "Failed login attempt for user " + user.getLogin() + ", bad password.",
-                        Messages.get("login.attempt.error.bad.pwd")
-                );
-            }
+//            UserPasswordSettings pwdSettings = user.getUserPasswordSettings();
+//
+//            boolean loginResult;
+//            try {
+//
+//                loginResult = securityUtilsService.isExpectedPassword(
+//                        userLoginAttempt.getPassword().toCharArray(),
+//                        pwdSettings.getSalt(),
+//                        pwdSettings.getHashedPwd(),
+//                        pwdSettings.getIterations(),
+//                        pwdSettings.getPwdDerivatedKeyBitLength(),
+//                        pwdSettings.getPwdPBKDF2algo()
+//                );
+//
+//            } catch (InvalidKeySpecException e) {
+//
+//                throw new ServiceException(
+//                        UserLoginServiceRestImpl.class.getName(), INTERNAL_SERVER_ERROR,
+//                        ExceptionUtils.getStackTrace(e),
+//                        Messages.get("login.attempt.error.internal.server.error")
+//                );
+//
+//            } catch (NoSuchAlgorithmException e) {
+//
+//                throw new ServiceException(
+//                        UserLoginServiceRestImpl.class.getName(), INTERNAL_SERVER_ERROR,
+//                        "Given hash algorithm does not exist or not supported ! (" +
+//                                pwdSettings.getPwdPBKDF2algo() + ")",
+//                        Messages.get("login.attempt.error.internal.server.error")
+//                );
+//            }
+//
+//            if(!loginResult) {
+//
+//                throw new ServiceException(
+//                        UserLoginServiceRestImpl.class.getName(), UNAUTHORIZED,
+//                        "Failed login attempt for user " + user.getMobile() + ", bad password.",
+//                        Messages.get("login.attempt.error.bad.pwd")
+//                );
+//            }
 
             sessionUtilsService.setSessionUserId(user.getId());
 
