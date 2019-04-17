@@ -13,9 +13,10 @@ public class ModelFactoryHelperProdImpl implements ModelFactoryHelper {
 
         Injector injector = Guice.createInjector(new UserSecurityModule());
        LcUser user = injector.getInstance(LcUser.class);
-
+//        LcUser user = new LcUser();
         user.setId(id);
-//        user.setMoblie(login);
+        user.setLogin(login);
+        user.setMobile(login);
         user.setNewPassword(newPassword);
         user.setConfirmPassword(confirmPassword);
         user.setEmail(email);

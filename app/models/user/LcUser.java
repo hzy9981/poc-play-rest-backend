@@ -21,12 +21,16 @@ import javax.persistence.*;
 })
 public class LcUser extends DaoObject {
 
-    @NotNull
+//    @NotNull
 //    @Constraints.Required
-    @Constraints.MinLength(value = 1)
-    @Constraints.MaxLength(value = 255)
+//    @Constraints.MinLength(value = 1)
+//    @Constraints.MaxLength(value = 255)
     private String mobile;
-
+//    @NotNull
+//    @Constraints.Required
+//    @Constraints.MinLength(value = 1)
+//    @Constraints.MaxLength(value = 255)
+    private String login;
     // see http://stackoverflow.com/questions/3802192/regexp-java-for-password-validation
     @Transient
     @Nullable
@@ -54,6 +58,14 @@ public class LcUser extends DaoObject {
 
     public void setMobile(@NotNull String mobile) {
         this.mobile = mobile;
+    }
+    @NotNull
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(@NotNull String login) {
+        this.login = login;
     }
 
     @Nullable

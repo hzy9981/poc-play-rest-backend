@@ -43,7 +43,7 @@ public class UserCreateServiceRestImpl implements UserCreateServiceRest {
             LcUser formUser = userForm.bind(jsContent).get();
 
             LcUser newUser = modelFactoryHelper.userFactory(
-                    null, null, formUser.getNewPassword(),
+                    null, formUser.getLogin(), formUser.getNewPassword(),
                     formUser.getConfirmPassword(), formUser.getEmail()
             );
 

@@ -9,13 +9,13 @@ import org.jetbrains.annotations.NotNull;
 public class ModelFactoryHelperTestImpl implements ModelFactoryHelper {
 
     @NotNull
-    public LcUser userFactory(Long id, String login, String newPassword, String confirmPassword, String email) {
+    public LcUser userFactory(Long id, String mobile, String newPassword, String confirmPassword, String email) {
 
         Injector injector = Guice.createInjector(new UserSecurityMockedModule());
         LcUser user = injector.getInstance(LcUser.class);
 
         user.setId(id);
-        user.setMobile(login);
+        user.setMobile(mobile);
         user.setNewPassword(newPassword);
         user.setConfirmPassword(confirmPassword);
         user.setEmail(email);
