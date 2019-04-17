@@ -39,7 +39,7 @@ public class UserCreateServiceJavaImpl implements UserCreateServiceJava {
     @Override
     public JavaServiceResult createUser(@NotNull LcUser user) throws ServiceException {
 
-//        checkLogin.check(user.getMobile());
+        checkLogin.check(user.getMobile());
         checkEmail.check(user.getEmail());
 
         if( user.getNewPassword() == null || user.getConfirmPassword() == null ||
