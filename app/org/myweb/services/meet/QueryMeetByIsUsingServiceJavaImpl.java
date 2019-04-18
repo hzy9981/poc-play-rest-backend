@@ -35,7 +35,7 @@ public class QueryMeetByIsUsingServiceJavaImpl implements QueryMeetByIsUsingServ
         List<? extends DaoObject> entityList;
 
         Map<String, Object> params = new HashMap<>();
-        params.put("isUsing", isUsing);
+        params.put("name", isUsing);
 
         try {
             entityList = dao.namedQueryWithPagination("Meet.findByIsUsing", clazz, params, page, itemPerPage);
@@ -61,7 +61,7 @@ public class QueryMeetByIsUsingServiceJavaImpl implements QueryMeetByIsUsingServ
         int count;
 
         Map<String, Object> params = new HashMap<>();
-        params.put("isUsing", isUsing);
+        params.put("name", isUsing);
 
         count = dao.namedQueryCount("Meet.countFindByIsUsing", clazz, params);
 
