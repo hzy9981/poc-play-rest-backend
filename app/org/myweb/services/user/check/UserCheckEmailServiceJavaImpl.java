@@ -1,7 +1,7 @@
 package org.myweb.services.user.check;
 
 import com.google.inject.Inject;
-import models.user.User;
+import models.user.LcUser;
 import org.jetbrains.annotations.NotNull;
 import org.myweb.db.Dao;
 import org.myweb.services.JavaServiceResult;
@@ -30,7 +30,7 @@ public class UserCheckEmailServiceJavaImpl implements UserCheckEmailServiceJava 
         Map<String, Object> param = new HashMap<>();
         param.put("email", email);
 
-        User res = (User) dao.namedQuerySingleResult("User.findByEmail", User.class, param);
+        LcUser res = (LcUser) dao.namedQuerySingleResult("LcUser.findByEmail", LcUser.class, param);
         if(res != null) {
 
             throw new ServiceException(
@@ -52,7 +52,7 @@ public class UserCheckEmailServiceJavaImpl implements UserCheckEmailServiceJava 
         param.put("email", email);
         param.put("excludedId", excludedUserId);
 
-        User res = (User) dao.namedQuerySingleResult("User.findByEmailExcludingId", User.class, param);
+        LcUser res = (LcUser) dao.namedQuerySingleResult("LcUser.findByEmailExcludingId", LcUser.class, param);
         if(res != null) {
 
             throw new ServiceException(

@@ -2,7 +2,7 @@
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import models.ModelFactoryHelper;
-import models.user.User;
+import models.user.LcUser;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.myweb.db.Dao;
 import org.myweb.db.DaoJpa;
@@ -71,7 +71,7 @@ public class Global extends GlobalSettings {
                 Map<String, Object> param = new HashMap<>();
                 param.put("login", "admin");
 
-                User admin = (User) dao.namedQuerySingleResult("User.findByLogin", User.class, param);
+                LcUser admin = (LcUser) dao.namedQuerySingleResult("LcUser.findByLogin", LcUser.class, param);
 
                 if(admin == null) {
                     admin = modelFactoryHelper.userFactory(null, "admin", "@dm1nPwd", "@dm1nPwd", "admin@domain.tld");
@@ -88,7 +88,7 @@ public class Global extends GlobalSettings {
                 Map<String, Object> param = new HashMap<>();
                 param.put("login", "demo-user");
 
-                User demoUser = (User) dao.namedQuerySingleResult("User.findByLogin", User.class, param);
+                LcUser demoUser = (LcUser) dao.namedQuerySingleResult("LcUser.findByLogin", LcUser.class, param);
 
                 if(demoUser == null) {
                     demoUser = modelFactoryHelper.userFactory(
@@ -138,11 +138,11 @@ public class Global extends GlobalSettings {
         Logger.info("[onStart] Environment configuration seems ok");
 
         Logger.info("[onStart] Init admin user");
-        onStartInitAdminUser();
+//        onStartInitAdminUser();
         Logger.info("[onStart] Init admin user is done");
 
         Logger.info("[onStart] Init demo user");
-        onStartInitDemoUser();
+//        onStartInitDemoUser();
         Logger.info("[onStart] Init demo user is done");
 
         Logger.info("[onStart] Sending starting email to tech support");

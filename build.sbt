@@ -16,6 +16,7 @@ libraryDependencies ++= Seq(
   "org.apache.commons" % "commons-lang3" % "3.2.1"
   )
 
+
 play.Project.playJavaSettings
 
 buildInfoSettings

@@ -1,7 +1,7 @@
 package org.myweb.services.user.create;
 
 import com.google.inject.Inject;
-import models.user.User;
+import models.user.LcUser;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.jetbrains.annotations.NotNull;
 import org.myweb.db.Dao;
@@ -37,9 +37,9 @@ public class UserCreateServiceJavaImpl implements UserCreateServiceJava {
 
     @NotNull
     @Override
-    public JavaServiceResult createUser(@NotNull User user) throws ServiceException {
+    public JavaServiceResult createUser(@NotNull LcUser user) throws ServiceException {
 
-        checkLogin.check(user.getLogin());
+        checkLogin.check(user.getMobile());
         checkEmail.check(user.getEmail());
 
         if( user.getNewPassword() == null || user.getConfirmPassword() == null ||

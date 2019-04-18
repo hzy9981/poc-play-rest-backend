@@ -1,11 +1,11 @@
 package models;
 
-import models.user.User;
+import models.user.LcUser;
 import org.jetbrains.annotations.NotNull;
 
 public interface ModelFactoryHelper {
 
     @NotNull
-    public User userFactory(Long id, String login, String newPassword, String confirmPassword, String email);
+    public LcUser userFactory(Long id, String mobile, String newPassword, String confirmPassword, String email);
 
 }

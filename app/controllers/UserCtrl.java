@@ -4,7 +4,7 @@ import controllers.actions.httpHeaders.CORSimplAction;
 import com.google.inject.Inject;
 import controllers.actions.credentials.CredentialsCheckerAction;
 import controllers.actions.httpHeaders.CacheControlAction;
-import models.user.User;
+import models.user.LcUser;
 import org.myweb.services.ServiceException;
 import org.myweb.services.crud.delete.DeleteServiceRest;
 import org.myweb.services.crud.get.GetServiceRest;
@@ -32,12 +32,12 @@ public class UserCtrl extends Controller {
 
     @Transactional(readOnly = true)
     public Result get(Long id) throws ServiceException {
-        return getServiceRest.get(User.class, id).buildPlayCtrlResult();
+        return getServiceRest.get(LcUser.class, id).buildPlayCtrlResult();
     }
 
     @Transactional(readOnly = true)
     public Result query(){
-        return queryServiceRest.query(User.class).buildPlayCtrlResult();
+        return queryServiceRest.query(LcUser.class).buildPlayCtrlResult();
     }
 
     @Transactional(readOnly = false)
@@ -52,7 +52,7 @@ public class UserCtrl extends Controller {
 
     @Transactional(readOnly = false)
     public Result delete(Long id) throws ServiceException {
-        return deleteServiceRest.delete(User.class, id).buildPlayCtrlResult();
+        return deleteServiceRest.delete(LcUser.class, id).buildPlayCtrlResult();
     }
 
 }
