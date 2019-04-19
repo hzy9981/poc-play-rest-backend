@@ -26,6 +26,7 @@ OPTIONS       /*path                 @controllers.CorsCtrl.checkPreFlight(path)
 #   See http://www.playframework.com/documentation/2.2.x/JavaSessionFlash
 #
 GET           /meets/byIsUsing  @controllers.MeetCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "1")
+GET           /meets  @controllers.MeetCtrl.query()
 
 GET           /version-full          controllers.VersionCtrl.longVersion()
 
