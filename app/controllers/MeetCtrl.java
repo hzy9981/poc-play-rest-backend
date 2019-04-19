@@ -42,7 +42,7 @@ public class MeetCtrl extends Controller {
 //        }
 //
 //        int count = jsr.getCount();
-//        response().setHeader("X-Total-Count", String.valueOf(count));
+        response().setHeader("X-Total-Count", String.valueOf(2));
 
         return queryMeetByIsUsingServiceRest.load(LcMeet.class, page, perPage, isUsing).buildPlayCtrlResult();
     }
