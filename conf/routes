@@ -25,7 +25,7 @@ OPTIONS       /*path                 @controllers.CorsCtrl.checkPreFlight(path)
 #   Login status is managed via Play! session mechanism.
 #   See http://www.playframework.com/documentation/2.2.x/JavaSessionFlash
 #
-GET           /meets/byIsUsing  @controllers.MeetCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /meets  @controllers.MeetCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
 #GET           /meets  @controllers.MeetCtrl.query()
 
 GET           /version-full          controllers.VersionCtrl.longVersion()

@@ -37,15 +37,17 @@ public class MeetCtrl extends Controller {
     public Result query(){
         return queryServiceRest.query(LcMeet.class).buildPlayCtrlResult();
     }
+
+    @Transactional(readOnly = true)
     public Result query(Integer page, Integer perPage, String filters) throws ServiceException {
 
-        JavaServiceResult jsr = getServiceJava.count(LcMeet.class, filters);
-        if(jsr.getHttpStatus() != OK) {
-            return internalServerError();
-        }
-
-        int count = jsr.getCount();
-        response().setHeader("X-Total-Count", String.valueOf(count));
+//        JavaServiceResult jsr = getServiceJava.count(LcMeet.class, filters);
+//        if(jsr.getHttpStatus() != OK) {
+//            return internalServerError();
+//        }
+//
+//        int count = jsr.getCount();
+        response().setHeader("X-Total-Count", String.valueOf(2));
 
         return queryServiceRest.query( LcMeet.class, page, perPage, filters ).buildPlayCtrlResult();
     }

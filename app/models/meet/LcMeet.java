@@ -6,8 +6,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.myweb.db.DaoObject;
 import play.data.validation.Constraints;
+import javax.persistence.Entity;
 
-import javax.persistence.*;
+@SuppressWarnings({"UnusedDeclaration", "JpaQlInspection"})
+@Entity
 public class LcMeet extends DaoObject {
          private String title;
         private String pubYear;
