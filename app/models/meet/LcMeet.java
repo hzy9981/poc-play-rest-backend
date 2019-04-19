@@ -8,26 +8,26 @@ import org.myweb.db.DaoObject;
 import play.data.validation.Constraints;
 
 import javax.persistence.*;
-
-@SuppressWarnings({"UnusedDeclaration", "JpaQlInspection"})
-@Entity
-@NamedQueries({
-
-        @NamedQuery(name = "Meet.findById", query = "SELECT u FROM LcMeet u WHERE u.id = :id"),
-        @NamedQuery(name = "Meet.findByIsUsing", query = "SELECT  lcmt.id,lcmt.title,lcmt.titleAbs,lcmt.pubYear,lcmt.pubMonth,lcmt.city" +
-                ",link.url,link.pic from LcMeet lcmt,LcLink link where lcmt.id=link.meetId and link.catId='110' and link.isUsing=:isUsing"),
-        @NamedQuery(name = "Meet.countFindByIsUsing", query = "SELECT count(lcmt) from LcMeet lcmt,LcLink link where lcmt.id=link.meetId and link.catId='110' and link.isUsing=:isUsing")
-})
 public class LcMeet extends DaoObject {
-    private String title;
-    private String pubYear;
-    private String pubMonth;
-    private String titleAbs;
-    private String city;
+         private String title;
+        private String pubYear;
+        private String pubMonth;
+        private String titleAbs;
+        private String city;
         private String url;
-        private String pic;
+    private String pic;
 
-        @NotNull
+    public String getIsUsing() {
+        return isUsing;
+    }
+
+    public void setIsUsing(String isUsing) {
+        this.isUsing = isUsing;
+    }
+
+    private String isUsing;
+
+    @NotNull
         public String getUrl() {
         return url;
         }
@@ -36,14 +36,14 @@ public class LcMeet extends DaoObject {
         this.url = url;
         }
 
-@Nullable
-public String getPic() {
-        return pic;
-        }
+    @Nullable
+    public String getPic() {
+            return pic;
+            }
 
-public void setPic(@Nullable String pic) {
-        this.pic = pic;
-        }
+    public void setPic(@Nullable String pic) {
+            this.pic = pic;
+            }
 
         @NotNull
     public String getTilte() {
@@ -63,22 +63,22 @@ public void setPic(@Nullable String pic) {
         this.city = city;
     }
 
-@Nullable
-public String getPubYear() {
-        return pubYear;
-        }
+    @Nullable
+    public String getPubYear() {
+            return pubYear;
+            }
 
-public void setPubYear(@Nullable String pubYear) {
-        this.pubYear = pubYear;
-        }
-@Nullable
-public String getPubMonth() {
-        return pubMonth;
-        }
+    public void setPubYear(@Nullable String pubYear) {
+            this.pubYear = pubYear;
+            }
+    @Nullable
+    public String getPubMonth() {
+            return pubMonth;
+            }
 
-public void setPubMonth(@Nullable String pubMonth) {
-        this.pubMonth = pubMonth;
-        }
+    public void setPubMonth(@Nullable String pubMonth) {
+            this.pubMonth = pubMonth;
+            }
 
     public LcMeet() {
 
