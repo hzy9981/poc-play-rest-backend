@@ -28,6 +28,14 @@ public class LcMeet extends DaoObject {
     }
 
     private String isUsing;
+    private String isRunning;
+    public String getIsRunning() {
+        return isRunning;
+    }
+
+    public void setIsRunning(String isRunning) {
+        this.isRunning = isRunning;
+    }
 
     @NotNull
         public String getUrl() {
