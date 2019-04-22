@@ -25,8 +25,12 @@ OPTIONS       /*path                 @controllers.CorsCtrl.checkPreFlight(path)
 #   Login status is managed via Play! session mechanism.
 #   See http://www.playframework.com/documentation/2.2.x/JavaSessionFlash
 #
+GET           /meetcatalogs              @controllers.MeetCatalogCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /articles              @controllers.ArticleCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /sliders              @controllers.SliderCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /links              @controllers.LinkCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
 GET           /meets  @controllers.MeetCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
-#GET           /meets  @controllers.MeetCtrl.query()
+GET           /meets/:id  @controllers.MeetCtrl.get(id:Long)
 
 GET           /version-full          controllers.VersionCtrl.longVersion()
 
@@ -47,10 +51,10 @@ PUT           /counties/:id          @controllers.CountyCtrl.update(id: Long)
 DELETE        /counties/:id          @controllers.CountyCtrl.delete(id: Long)
 
 GET           /orgs              @controllers.OrgCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
-GET           /orgs/:id          @controllers.OrgCtrl.get(id: Long)
-POST          /orgs              @controllers.OrgCtrl.create()
-PUT           /orgs/:id          @controllers.OrgCtrl.update(id: Long)
-DELETE        /orgs/:id          @controllers.OrgCtrl.delete(id: Long)
+#GET           /orgs/:id          @controllers.OrgCtrl.get(id: Long)
+#POST          /orgs              @controllers.OrgCtrl.create()
+#PUT           /orgs/:id          @controllers.OrgCtrl.update(id: Long)
+#DELETE        /orgs/:id          @controllers.OrgCtrl.delete(id: Long)
 
 GET           /cinemas               @controllers.CinemaCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
 GET           /cinemas/byCountyName  @controllers.CinemaByCountyCtrl.query(page:Integer ?=1, perPage:Integer ?=10, countyName:String)
