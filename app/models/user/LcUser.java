@@ -25,7 +25,20 @@ public class LcUser extends DaoObject {
 //    @Constraints.Required
 //    @Constraints.MinLength(value = 1)
 //    @Constraints.MaxLength(value = 255)
-    private String mobile;
+private String mobile;
+    private String jobUnit;
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    private String realName;
+    private String gender;
+
 //    @NotNull
 //    @Constraints.Required
 //    @Constraints.MinLength(value = 1)

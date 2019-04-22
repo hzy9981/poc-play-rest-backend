@@ -46,6 +46,12 @@ POST          /counties              @controllers.CountyCtrl.create()
 PUT           /counties/:id          @controllers.CountyCtrl.update(id: Long)
 DELETE        /counties/:id          @controllers.CountyCtrl.delete(id: Long)
 
+GET           /orgs              @controllers.OrgCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /orgs/:id          @controllers.OrgCtrl.get(id: Long)
+POST          /orgs              @controllers.OrgCtrl.create()
+PUT           /orgs/:id          @controllers.OrgCtrl.update(id: Long)
+DELETE        /orgs/:id          @controllers.OrgCtrl.delete(id: Long)
+
 GET           /cinemas               @controllers.CinemaCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
 GET           /cinemas/byCountyName  @controllers.CinemaByCountyCtrl.query(page:Integer ?=1, perPage:Integer ?=10, countyName:String)
 GET           /cinemas/:id           @controllers.CinemaCtrl.get(id: Long)
