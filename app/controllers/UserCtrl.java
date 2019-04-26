@@ -16,7 +16,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.With;
 
-@With({CacheControlAction.class, CORSimplAction.class, CredentialsCheckerAction.class})
+@With({CacheControlAction.class, CORSimplAction.class})
 public class UserCtrl extends Controller {
 
     @Inject

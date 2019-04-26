@@ -16,7 +16,7 @@ public class VersionCtrl extends Controller {
         return VersionService.getInstance().getShortVersion().buildPlayCtrlResult();
     }
 
-    @With({CacheControlAction.class, CORSimplAction.class, CredentialsCheckerAction.class})
+    @With({CacheControlAction.class, CORSimplAction.class})
     public static Result longVersion() throws ServiceException {
         return VersionService.getInstance().getLongVersion().buildPlayCtrlResult();
     }
