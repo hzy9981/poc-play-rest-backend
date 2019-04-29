@@ -23,10 +23,10 @@ public class QueryMeetByIsUsingServiceRestImpl implements QueryMeetByIsUsingServ
     @NotNull
     @Override
     public RestServiceResult load(
-            @NotNull Class<? extends DaoObject> clazz, int page, int itemPerPage, @NotNull String countyName
+            @NotNull Class<? extends DaoObject> clazz, int page, int itemPerPage, @NotNull String title
     ) throws ServiceException {
 
-        JavaServiceResult jsr = queryMeetByIsUsingServiceJava.load(clazz, page, itemPerPage, countyName);
+        JavaServiceResult jsr = queryMeetByIsUsingServiceJava.load(clazz, page, itemPerPage, title);
 
         if(jsr.getHttpStatus() == NO_CONTENT) {
             return RestServiceResult.buildServiceResult(NO_CONTENT);

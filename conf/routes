@@ -25,6 +25,7 @@ OPTIONS       /*path                 @controllers.CorsCtrl.checkPreFlight(path)
 #   Login status is managed via Play! session mechanism.
 #   See http://www.playframework.com/documentation/2.2.x/JavaSessionFlash
 #
+GET           /meetnow/byUserId  @controllers.MeetNowByUserIdCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String)
 GET           /catalogs              @controllers.CatalogCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
 GET           /meetcatalogs              @controllers.MeetCatalogCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
 GET           /articles              @controllers.ArticleCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")

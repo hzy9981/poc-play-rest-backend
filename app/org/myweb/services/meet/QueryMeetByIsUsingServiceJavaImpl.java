@@ -29,16 +29,16 @@ public class QueryMeetByIsUsingServiceJavaImpl implements QueryMeetByIsUsingServ
     @NotNull
     @Override
     public JavaServiceResult load(
-            @NotNull Class<? extends DaoObject> clazz, int page, int itemPerPage, @NotNull String isUsing
+            @NotNull Class<? extends DaoObject> clazz, int page, int itemPerPage, @NotNull String title
     ) throws ServiceException {
 
         List<? extends DaoObject> entityList;
 
         Map<String, Object> params = new HashMap<>();
-        params.put("name", isUsing);
+        params.put("name", title);
 
         try {
-            entityList = dao.namedQueryWithPagination("Meet.findByIsUsing", clazz, params, page, itemPerPage);
+            entityList = dao.namedQueryWithPagination("MeetNow.findByUserId", clazz, params, page, itemPerPage);
         } catch (DaoException e) {
             throw new ServiceException(
                     QueryMeetByIsUsingServiceJavaImpl.class.getName(), BAD_REQUEST, e.getMessage(), e,
@@ -56,14 +56,14 @@ public class QueryMeetByIsUsingServiceJavaImpl implements QueryMeetByIsUsingServ
     @NotNull
     @Override
     public JavaServiceResult count(
-            @NotNull Class<? extends DaoObject> clazz, @NotNull String isUsing
+            @NotNull Class<? extends DaoObject> clazz, @NotNull String title
     ) {
         int count;
 
         Map<String, Object> params = new HashMap<>();
-        params.put("name", isUsing);
+        params.put("name", title);
 
-        count = dao.namedQueryCount("Meet.countFindByIsUsing", clazz, params);
+        count = dao.namedQueryCount("MeetNow.countFindByUserId", clazz, params);
 
         return JavaServiceResult.buildServiceResult(OK, count);
     }

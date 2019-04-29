@@ -83,6 +83,15 @@ private String mobile;
         this.billBankNo = billBankNo;
     }
 
+    public String getPsw() {
+        return psw;
+    }
+
+    public void setPsw(String psw) {
+        this.psw = psw;
+    }
+
+    private String psw;
     private String isReg;
     private String billOrgan;
     private String billCode;
