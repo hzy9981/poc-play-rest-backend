@@ -34,6 +34,72 @@ GET           /links              @controllers.LinkCtrl.query(page:Integer ?=1, 
 GET           /meets  @controllers.MeetCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
 GET           /meets/:id  @controllers.MeetCtrl.get(id:Long)
 
+GET           /usermeets  @controllers.UserMeetsCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /usermeets/:id  @controllers.UserMeetsCtrl.get(id:Long)
+POST          /usermeets                 @controllers.UserMeetsCtrl.create()
+PUT           /usermeets/:id             @controllers.UserMeetsCtrl.update(id: Long)
+DELETE        /usermeets/:id             @controllers.UserMeetsCtrl.delete(id: Long)
+
+GET           /taxrates  @controllers.TaxRateCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /taxrates/:id  @controllers.TaxRateCtrl.get(id:Long)
+POST          /taxrates                 @controllers.TaxRateCtrl.create()
+PUT           /taxrates/:id             @controllers.TaxRateCtrl.update(id: Long)
+DELETE        /taxrates/:id             @controllers.TaxRateCtrl.delete(id: Long)
+
+GET           /ppts  @controllers.PptCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /ppts/:id  @controllers.PptCtrl.get(id:Long)
+POST          /ppts                 @controllers.PptCtrl.create()
+PUT           /ppts/:id             @controllers.PptCtrl.update(id: Long)
+DELETE        /ppts/:id             @controllers.PptCtrl.delete(id: Long)
+
+GET           /downloads  @controllers.DownloadCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /downloads/:id  @controllers.DownloadCtrl.get(id:Long)
+POST          /downloads                 @controllers.DownloadCtrl.create()
+PUT           /downloads/:id             @controllers.DownloadCtrl.update(id: Long)
+DELETE        /downloads/:id             @controllers.DownloadCtrl.delete(id: Long)
+
+GET           /fees  @controllers.FeeCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /fees/:id  @controllers.FeeCtrl.get(id:Long)
+POST          /fees                 @controllers.FeeCtrl.create()
+PUT           /fees/:id             @controllers.FeeCtrl.update(id: Long)
+DELETE        /fees/:id             @controllers.FeeCtrl.delete(id: Long)
+
+GET           /feetypes  @controllers.FeeTypeCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /feetypes/:id  @controllers.FeeTypeCtrl.get(id:Long)
+POST          /feetypes                 @controllers.FeeTypeCtrl.create()
+PUT           /feetypes/:id             @controllers.FeeTypeCtrl.update(id: Long)
+DELETE        /feetypes/:id             @controllers.FeeTypeCtrl.delete(id: Long)
+
+GET           /papers  @controllers.PaperCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /papers/:id  @controllers.PaperCtrl.get(id:Long)
+POST          /papers                 @controllers.PaperCtrl.create()
+PUT           /papers/:id             @controllers.PaperCtrl.update(id: Long)
+DELETE        /papers/:id             @controllers.PaperCtrl.delete(id: Long)
+
+GET           /papertracks  @controllers.PaperTrackCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /papertracks/:id  @controllers.PaperTrackCtrl.get(id:Long)
+POST          /papertracks                 @controllers.PaperTrackCtrl.create()
+PUT           /papertracks/:id             @controllers.PaperTrackCtrl.update(id: Long)
+DELETE        /papertracks/:id             @controllers.PaperTrackCtrl.delete(id: Long)
+
+GET           /hotelrooms  @controllers.HotelRoomCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /hotelrooms/:id  @controllers.HotelRoomCtrl.get(id:Long)
+POST          /hotelrooms                 @controllers.HotelRoomCtrl.create()
+PUT           /hotelrooms/:id             @controllers.HotelRoomCtrl.update(id: Long)
+DELETE        /hotelrooms/:id             @controllers.HotelRoomCtrl.delete(id: Long)
+
+GET           /hotels  @controllers.HotelCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /hotels/:id  @controllers.HotelCtrl.get(id:Long)
+POST          /hotels                 @controllers.HotelCtrl.create()
+PUT           /hotels/:id             @controllers.HotelCtrl.update(id: Long)
+DELETE        /hotels/:id             @controllers.HotelCtrl.delete(id: Long)
+
+GET           /userhotels  @controllers.UserHotelCtrl.query(page:Integer ?=1, perPage:Integer ?=10, filters:String ?= "")
+GET           /userhotels/:id  @controllers.UserHotelCtrl.get(id:Long)
+POST          /userhotels                 @controllers.UserHotelCtrl.create()
+PUT           /userhotels/:id             @controllers.UserHotelCtrl.update(id: Long)
+DELETE        /userhotels/:id             @controllers.UserHotelCtrl.delete(id: Long)
+
 GET           /version-full          controllers.VersionCtrl.longVersion()
 
 GET           /users                 @controllers.UserCtrl.query()
